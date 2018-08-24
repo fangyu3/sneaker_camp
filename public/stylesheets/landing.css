@@ -1,0 +1,29 @@
+html {
+    height: 100%;
+}
+
+body {
+  background-image: url(https://source.unsplash.com/SnE0AP9i2gs);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#landing-header {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 40vh;
+}
+
+#landing-header h1 {
+    color: #f1b134;
+    margin-bottom: 20px;
+}
+
+#footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+}
