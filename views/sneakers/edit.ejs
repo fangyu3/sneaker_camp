@@ -1,0 +1,131 @@
+<%include ../partials/header%>
+<div class="container">
+    <div class="row">
+        <h1 class="col-sm-12" style="text-align:center;">Edit Review - <%= foundSneaker.name %></h1>
+        <div style="width: 40%; margin: 20px auto;">
+            <form action="/sneakers/<%= foundSneaker._id %>?_method=PUT" method="POST">
+                <div class="form-group">
+                    <label>Name/Brand:</label>
+                    <input class="form-control" type="text" name="sneaker[name]" value="<%=foundSneaker.name%>" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Image URL:</label>
+                    <input class="form-control" type="text" name="sneaker[img]" value="<%=foundSneaker.img%>" required>
+                </div>
+                
+                <fieldset class="form-group">
+                    <div class="row">
+                        <label class="col-form-label col-sm-12">Sneaker Rating:</label>
+                    </div>
+                    <div class="row">
+                      <label class="col-form-label col-sm-4 pt-0">Style</label>
+                      <div class="col-sm-8">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sneaker[review[style]]" value="1" checked>
+                          <label class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sneaker[review[style]]" value="2">
+                          <label class="form-check-label">2</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sneaker[review[style]]" value="3">
+                          <label class="form-check-label">3</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sneaker[review[style]]" value="4">
+                          <label class="form-check-label">4</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sneaker[review[style]]" value="5">
+                          <label class="form-check-label">5</label>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <label class="col-form-label col-sm-4 pt-0">Cushion</label>
+                      <div class="col-sm-8">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sneaker[review[cushion]]" value="1" checked>
+                          <label class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sneaker[review[cushion]]" value="2">
+                          <label class="form-check-label">2</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sneaker[review[cushion]]" value="3">
+                          <label class="form-check-label">3</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sneaker[review[cushion]]" value="4">
+                          <label class="form-check-label">4</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sneaker[review[cushion]]" value="5">
+                          <label class="form-check-label">5</label>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <label class="col-form-label col-sm-4 pt-0">Traction</label>
+                      <div class="col-sm-8">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sneaker[review[traction]]" value="1" checked>
+                          <label class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sneaker[review[traction]]" value="2">
+                          <label class="form-check-label">2</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sneaker[review[traction]]" value="3">
+                          <label class="form-check-label">3</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sneaker[review[traction]]" value="4">
+                          <label class="form-check-label">4</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sneaker[review[traction]]" value="5">
+                          <label class="form-check-label">5</label>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                        <label class="col-form-label col-sm-4 pt-0">Fitting</label>
+                        <div class="col-sm-8">
+                            <select class="select mt-1" name="sneaker[review[fitting]]">
+                                <option selected>true to size</option>
+                                <option>half size down</option>
+                                <option>half size up</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <div class="form-group">
+                    <label>Description:</label>
+                    <textarea name="sneaker[description]" rows="5" style="width:100%;"><%=foundSneaker.description%></textarea>
+                </div>
+                
+                <div class="form-group">
+                  <div class="row">
+                    <label class="col-form-label col-sm-8 pt-0">Price($):</label>
+                    <div class="col-sm-4">
+                      <input class="form-control" type="text" name="sneaker[price]" value="<%=foundSneaker.price%>" required>
+                    </div>
+                  </div>
+                </div>
+                
+                <button class="btn btn-success btn-lg btn-block">Submit</button>
+            </form>
+            <a href="/sneakers">Go Back</a>
+        </div>
+    </div>
+</div>
+<%include ../partials/footer%>

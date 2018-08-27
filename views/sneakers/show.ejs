@@ -1,0 +1,88 @@
+<% include ../partials/header %>
+<div class="container mt-3" style="width:80%;">
+    <div class="row">
+        <div class="col-md-3">
+           <p class="lead" id="rating_header">Ratings:</p>
+           <ul class="list-group">
+                <li class="list-group-item"><strong>Style</strong>: 
+                <% for(var i=1; i<=5; i++){ %>
+                <%      if(i <= parseInt(foundSneaker.review.style,10)){ %>
+                            <span class="fa fa-star checked"></span>
+                <%      } else { %>
+                            <span class="fa fa-star"></span>
+                        <%   } %>
+                <%  } %>
+                </li>
+                <li class="list-group-item"><strong>Cushion</strong>: 
+                <% for(var i=1; i<=5; i++){ %>
+                <%      if(i <= parseInt(foundSneaker.review.cushion,10)){ %>
+                            <span class="fa fa-star checked"></span>
+                <%      } else { %>
+                            <span class="fa fa-star"></span>
+                        <%   } %>
+                <%  } %>
+                </li>
+                <li class="list-group-item"><strong>Traction</strong>: 
+                <% for(var i=1; i<=5; i++){ %>
+                <%      if(i <= parseInt(foundSneaker.review.traction,10)){ %>
+                            <span class="fa fa-star checked"></span>
+                <%      } else { %>
+                            <span class="fa fa-star"></span>
+                        <%   } %>
+                <%  } %>
+                </li>
+                <li class="list-group-item"><strong>fitting</strong>: <%=foundSneaker.review.fitting%></li>
+           </ul>
+        </div>
+        
+        <div class="col-md-9">
+            <div class="card mb-3">
+                <img class="card-img-top" src="<%= foundSneaker.img %>">
+                <div class="card-body">
+                    <p class="float-right">$ <%=foundSneaker.price%></p>
+                    <h4 class="card-title"><%= foundSneaker.name %></h4> 
+                    <p class="card-text"><%= foundSneaker.description %></p>
+                    <p class="card-text"><em>Submitted by: <%= foundSneaker.author.username %></em></p>
+                    
+                    <% if(currentUser && foundSneaker.author.id.equals(currentUser._id)) { %>
+                        <a class="btn btn-warning btn-sm" href="/sneakers/<%= foundSneaker._id%>/edit">Edit</a>
+                        <form class="deleteBtn" action="/sneakers/<%= foundSneaker._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger btn-sm" >Delete</button>
+                        </form>
+                    <% }; %>
+                    
+                    <a class="card-link float-right" href="/sneakers">Go Back</a>
+                </div>
+            </div>
+            
+            
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="text-right">
+                        <a class="btn btn-info btn-sm" href="/sneakers/<%= foundSneaker._id%>/comments/new">Leave A Comment</a>
+                    </div>
+                    <hr>
+                    <span class="card-subtitle"><em>Comments:</em></span>
+                    <div>
+                        <% foundSneaker.comments.forEach(function(comment){ %>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span><strong><%= comment.author.username %></strong></span>
+                                    <p class="float-right">10 days ago</p>
+                                    <p><%= comment.text %></p>
+                                    <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                                        <a class="btn btn-warning btn-sm" href="/sneakers/<%= foundSneaker._id%>/comments/<%= comment._id%>/edit">Edit</a>
+                                        <form class="deleteBtn" action="/sneakers/<%= foundSneaker._id%>/comments/<%= comment._id%>?_method=DELETE" method="POST">
+                                            <button class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    <% } %>
+                                </div>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer %>

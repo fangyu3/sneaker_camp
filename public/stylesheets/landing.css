@@ -3,8 +3,8 @@ html {
 }
 
 body {
-  background-image: url(https://source.unsplash.com/SnE0AP9i2gs);
-  background-position: center;
+  background-image: url(https://source.unsplash.com/KPydzVyWfqg);
+  background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -17,7 +17,7 @@ body {
 }
 
 #landing-header h1 {
-    color: #f1b134;
+    color: #ffffff;
     margin-bottom: 20px;
 }
 

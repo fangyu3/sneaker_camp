@@ -3,7 +3,7 @@
     <div class="row">
         <h1 class="col-sm-12" style="text-align:center;">Edit Comment</h1>
         <div style="width: 30%; margin: 20px auto;">
-            <form action="/campgrounds/<%=campgroundId%>/comments/<%= foundComment._id %>?_method=PUT" method="POST">
+            <form action="/sneakers/<%=sneakerId%>/comments/<%= foundComment._id %>?_method=PUT" method="POST">
                 <div class="form-group">
                     <label>Comment:</label>
                     <input class="form-control" type="text" name="comment[text]" value="<%=foundComment.text%>" required>
@@ -11,7 +11,7 @@
                 
                 <button class="btn btn-success btn-lg btn-block">Submit</button>
             </form>
-            <a href="/campgrounds/<%=campgroundId%>">Go Back</a>
+            <a href="/sneakers/<%=sneakerId%>">Go Back</a>
         </div>
     </div>
 </div>

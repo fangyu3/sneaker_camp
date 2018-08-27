@@ -1,23 +1,19 @@
 var express         = require("express"),
     app             = express(),
-    request         = require("request"),
     bodyParser      = require("body-parser"),
     mongoose        = require("mongoose"),
     passport        = require("passport"),
     localStrategy   = require("passport-local"),
     methodOverride  = require("method-override"),
     flash           = require("connect-flash"),
-    Campground      = require("./models/campground"),
-    seedDB          = require("./seeds"),
-    User            = require("./models/user"),
-    Comment         = require("./models/comment");
+    User            = require("./models/user");
 
 var commentRoutes       = require("./routes/comments"),
-    campgroundRoutes    = require("./routes/campgrounds"),
+    sneakerRoutes    = require("./routes/sneakers"),
     indexRoutes         = require("./routes/index");
     
 
-var url = process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp";
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/hoop_camp";
 //mongoDB config
 mongoose.connect(url, {useNewUrlParser: true});
 
@@ -62,16 +58,11 @@ app.use(function(req, res, next){
 
 //setup routes
 app.use(indexRoutes);
-app.use("/campgrounds/:id/comments", commentRoutes);
-app.use("/campgrounds", campgroundRoutes);
-
-
-
-//data reset for testing purpose
-//seedDB();
+app.use("/sneakers/:id/comments", commentRoutes);
+app.use("/sneakers", sneakerRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function(){
-   console.log("Yelp Camp server started!"); 
+   console.log("server started!"); 
 });
 
 

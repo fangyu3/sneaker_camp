@@ -1,10 +1,48 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url(https://source.unsplash.com/KPydzVyWfqg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+form {
+    color: #fff;
+}
+
+
+#rating_header {
+    color: #fff;
+    text-decoration: underline;
+}
+
+#indexPage_header {
+    color: #fff;
+}
+
 #footer {
     position: fixed;
     right: 0;
     bottom: 0;
-    color: #1f1f1f;
+    color: #fff;
 }
+
 .deleteBtn {
     display: inline;
 }
+
+.checked {
+    color: orange;
+}
+
+.jumbotron {
+    background-color: #fccf76;
+    padding: 32px 16px;
+    color: #000
+}
+
 

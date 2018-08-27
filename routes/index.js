@@ -22,8 +22,8 @@ router.post("/register", function(req, res) {
         }
         else{
             passport.authenticate("local")(req, res, function(){
-                req.flash("success", "Welcome To YelpCamp: " + req.user.username);
-                res.redirect("/campgrounds");
+                req.flash("success", "Welcome To SneakerCamp: " + req.user.username);
+                res.redirect("/sneakers");
             });
         }
     });
@@ -38,9 +38,9 @@ router.get("/login", function(req, res){
 router.post("/login", function(req,res,next) {
     passport.authenticate("local", 
     {
-        successRedirect: "/campgrounds",
+        successRedirect: "/sneakers",
         failureRedirect: "/login",
-        successFlash: "Welcome to YelpCamp: " + req.body.username,
+        successFlash: "Welcome to SneakerCamp: " + req.body.username,
         failureFlash: true
     })(req, res);
 });
@@ -50,7 +50,7 @@ router.post("/login", function(req,res,next) {
 router.get("/logout", function(req, res) {
     req.logout();
     req.flash("success", "Logged You Out!")
-    res.redirect("/campgrounds");
+    res.redirect("/sneakers");
 });
 
 

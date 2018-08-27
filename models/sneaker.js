@@ -1,10 +1,17 @@
 var mongoose=require("mongoose");
 
 //setup schema
-var campgroundSchema = new mongoose.Schema({
+var sneakerSchema = new mongoose.Schema({
    name: String,
    img: String,
    description: String,
+   price: String,
+   review: {
+      style: String,
+      cushion: String,
+      traction: String,
+      fitting: String
+   },
    comments: [{
        type: mongoose.Schema.Types.ObjectId,
        ref: "Comment"
@@ -19,6 +26,6 @@ var campgroundSchema = new mongoose.Schema({
 });
 
 //create db object 
-var Campground = mongoose.model("Campground", campgroundSchema);
+var Sneaker = mongoose.model("Sneaker", sneakerSchema);
 
-module.exports = Campground;
+module.exports = Sneaker;
